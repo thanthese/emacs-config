@@ -31,23 +31,48 @@
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
 
+;; paredit
+(require 'paredit)
+(add-hook 'emacs-lisp-mode-hook       'paredit-mode)
+(add-hook 'lisp-mode-hook             'paredit-mode)
+(add-hook 'lisp-interaction-mode-hook 'paredit-mode)
+(add-hook 'scheme-mode-hook           'paredit-mode)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; setup external packages
+
+;; For the purposes of using clojure, I like to have the modes
+;; - paredit
+;; - nrepl-interaction
+;;
+;; To kick clojure editing off, nativate to anywhere in a leiningen
+;; project and enter `M-x nrepl-jack-in`.
+
 ;; clojure-mode
 (unless (package-installed-p 'clojure-mode)
   (package-refresh-contents)
   (package-install 'clojure-mode))
-(unless (package-installed-p 'clojure-test-mode)
-  (package-refresh-contents)
-  (package-install 'clojure-test-mode))
+;; (unless (package-installed-p 'clojure-test-mode)
+;;   (package-refresh-contents)
+;;   (package-install 'clojure-test-mode))
+(require 'clojure-mode)
+(add-hook 'clojure-mode-hook
+          'paredit-mode)
+;; (add-hook 'clojure-test-mode-hook
+;; 	  'paredit-mode)
 
 ;; nrepl
 (unless (package-installed-p 'nrepl)
   (package-refresh-contents)
   (package-install 'nrepl))
 (require 'nrepl)
+(setq nrepl-popup-stacktraces nil)
 (add-hook 'nrepl-interaction-mode-hook 
 	  'nrepl-turn-on-eldoc-mode)
 (add-hook 'nrepl-mode-hook 
 	  'paredit-mode)
+(add-hook 'clojure-mode-hook
+          'nrepl-interaction-mode)
 
 ;; auto-complete
 ;; (unless (package-installed-p 'auto-complete)
@@ -68,12 +93,3 @@
 ;; 	  'ac-nrepl-setup)
 ;; (eval-after-load "auto-complete"
 ;;   '(add-to-list 'ac-modes 'nrepl-mode))
-
-;; paredit
-;; (require 'paredit)
-;; (add-hook 'emacs-lisp-mode-hook       'paredit-mode)
-;; (add-hook 'lisp-mode-hook             'paredit-mode)
-;; (add-hook 'lisp-interaction-mode-hook 'paredit-mode)
-;; (add-hook 'scheme-mode-hook           'paredit-mode)
-;; (add-hook 'clojure-mode-hook          'paredit-mode)
-;; (add-hook 'clojure-test-mode-hook     'paredit-mode)
