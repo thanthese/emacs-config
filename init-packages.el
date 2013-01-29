@@ -18,15 +18,15 @@
 	  dash
 	  s
 	  smooth-scrolling
-	  magit))
+	  magit
+          ace-jump-mode))
 
 ;; ibuffers is better than the default
 (defalias 'list-buffers 'ibuffer)
 
 ;; ido
 (ido-mode t)
-(setq ido-everywhere t
-      ido-enable-prefix nil
+(setq ido-enable-prefix nil
       ido-enable-flex-matching t
       ido-auto-merge-work-directories-length nil
       ido-create-new-buffer 'always
@@ -34,6 +34,7 @@
       ido-use-virtual-buffers t
       ido-handle-duplicate-virtual-buffers 2
       ido-max-prospects 10)
+(ido-everywhere)
 
 ;; nrepl
 (setq nrepl-popup-stacktraces nil)

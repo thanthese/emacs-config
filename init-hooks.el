@@ -15,8 +15,12 @@
 (add-hook 'clojure-mode-hook          'paredit-mode)
 (add-hook 'nrepl-mode-hook            'paredit-mode)
 
+;; clojure
 (add-hook 'nrepl-interaction-mode-hook
 	  'nrepl-turn-on-eldoc-mode)
-
 (add-hook 'clojure-mode-hook
           'nrepl-interaction-mode)
+
+;; make a shell script executable automatically on save
+(add-hook 'after-save-hook
+          'executable-make-buffer-file-executable-if-script-p)
