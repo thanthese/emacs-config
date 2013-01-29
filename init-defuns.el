@@ -14,14 +14,13 @@
 
 (defun sm/install-package (package)
   "Install and require package."
-  (progn
-    (unless (package-installed-p package)
-      (condition-case nil
-	  (package-install package)
-	(error
-	 (package-refresh-contents)
-	 (package-install package))))
-    (require package)))
+  (unless (package-installed-p package)
+    (condition-case nil
+	(package-install package)
+      (error
+       (package-refresh-contents)
+       (package-install package))))
+  (require package))
 
 (defun sm/move-line-up ()
   (interactive)
