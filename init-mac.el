@@ -14,3 +14,6 @@
 
 ;; .DS_Store files are dumb
 (add-to-list 'ido-ignore-files "\\.DS_Store")
+
+;; how to browse links
+(setq browse-url-browser-function 'browse-default-macosx-browser)

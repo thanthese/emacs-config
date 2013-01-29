@@ -46,8 +46,5 @@
 ;; single space sentences
 (set-default 'sentence-end-double-space nil)
 
-;; how to browse links
-(setq browse-url-browser-function 'browse-default-macosx-browser)
-
 ;; make kill-line kill newline
 (setq kill-whole-line t)
