@@ -3,7 +3,8 @@
 ;; emacs load paths
 (mapcar 'sm/fix-path
 	'("/usr/local/bin"
-	  "/usr/local/git/bin"))
+	  "/usr/local/git/bin"
+          "/usr/texbin"))
 
 ;; super keys!
 (setq mac-function-modifier 'hyper)
