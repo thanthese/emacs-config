@@ -5,14 +5,6 @@
 	'("/usr/local/bin"
 	  "/usr/local/git/bin"))
 
-(setenv "PATH" (concat "/usr/local/bin" path-separator (getenv "PATH")))
-(push "/usr/local/bin" exec-path)
-(add-to-list 'load-path "/usr/local/bin")
-
-(setenv "PATH" (concat "/usr/local/bin" path-separator (getenv "PATH")))
-(push "/usr/local/bin" exec-path)
-(add-to-list 'load-path "/usr/local/bin")
-
 ;; super keys!
 (setq mac-function-modifier 'hyper)
 
