@@ -43,9 +43,6 @@
 ;; indictate empty lines at end of buffer
 (set-default 'indicate-empty-lines t)
 
-;; single space sentences
-(set-default 'sentence-end-double-space nil)
-
 ;; make kill-line kill newline
 (setq kill-whole-line t)
 
