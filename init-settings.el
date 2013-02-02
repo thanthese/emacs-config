@@ -68,3 +68,9 @@
 (setq scroll-margin 0
       scroll-conservatively 100000
       scroll-preserve-screen-position 1)
+
+;; the beep is annoying, and so is the alternate flash
+(setq ring-bell-function 'ignore)
+
+;; show column numbers
+(setq column-number-mode t)
