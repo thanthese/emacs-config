@@ -74,3 +74,6 @@
 
 ;; show column numbers
 (setq column-number-mode t)
+
+;; visual line mode is better
+(global-visual-line-mode 1)
